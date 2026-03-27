@@ -441,33 +441,55 @@
 
   .screens-scroll {
     display: flex;
-    gap: 24px;
+    gap: 28px;
     margin-top: 60px;
     overflow-x: auto;
-    padding-bottom: 24px;
+    padding: 20px 8px 40px;
     scrollbar-width: none;
     -ms-overflow-style: none;
+    align-items: flex-end;
   }
   .screens-scroll::-webkit-scrollbar { display: none; }
 
+  /* 실제 앱 스크린샷 카드 */
   .screen-card {
     flex-shrink: 0;
-    width: 220px;
-    background: var(--beige);
-    border-radius: 28px;
-    overflow: hidden;
-    border: 1px solid rgba(212,160,23,0.12);
-    box-shadow: 0 8px 40px rgba(74,64,53,0.08);
-    transition: all 0.3s;
+    width: 200px;
+    transition: all 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+    position: relative;
   }
 
-  .screen-card:hover { transform: translateY(-6px) scale(1.02); box-shadow: 0 20px 60px rgba(74,64,53,0.15); }
+  .screen-card:hover {
+    transform: translateY(-10px) scale(1.03);
+    z-index: 2;
+  }
 
-  .screen-header {
-    background: linear-gradient(180deg, rgba(212,160,23,0.08) 0%, transparent 100%);
-    padding: 28px 20px 20px;
+  /* 폰 프레임 */
+  .phone-frame {
+    position: relative;
+    width: 200px;
+    border-radius: 36px;
+    overflow: hidden;
+    box-shadow:
+      0 0 0 2px rgba(74,64,53,0.12),
+      0 20px 60px rgba(74,64,53,0.2),
+      0 4px 12px rgba(74,64,53,0.1);
+    background: #F5F0E8;
+  }
+
+  /* 노치 마스크: 이미지 상단 노치 영역 자르기 */
+  .phone-frame img {
+    display: block;
+    width: 100%;
+    /* 노치 아래부터 보이도록 상단 크롭 */
+    margin-top: -9%;
+    border-radius: 0;
+  }
+
+  /* 화면 레이블 */
+  .screen-label {
     text-align: center;
-    border-bottom: 1px solid rgba(212,160,23,0.1);
+    margin-top: 14px;
   }
 
   .screen-name {
@@ -475,19 +497,13 @@
     font-size: 13px;
     font-weight: 600;
     color: var(--gray);
-    margin-bottom: 4px;
+    margin-bottom: 3px;
   }
 
   .screen-sub {
     font-size: 11px;
     color: var(--gray-light);
     font-weight: 300;
-  }
-
-  .screen-mockup {
-    padding: 20px 16px;
-    min-height: 180px;
-    position: relative;
   }
 
   /* Home mockup */
@@ -1282,106 +1298,62 @@
     </div>
 
     <div class="screens-scroll">
-      <!-- 홈 화면 -->
+
+      <!-- 홈 -->
       <div class="screen-card reveal">
-        <div class="screen-header">
+        <div class="phone-frame">
+          <img src="1_home.png" alt="홈 화면">
+        </div>
+        <div class="screen-label">
           <div class="screen-name">홈</div>
           <div class="screen-sub">오늘의 기도 시작</div>
-        </div>
-        <div class="screen-mockup">
-          <div class="mock-home">
-            <div class="mock-hands-sm">
-              <div class="mock-glow"></div>
-              <div class="mock-hands-icon">🙏</div>
-            </div>
-            <div class="mock-title">WITH</div>
-            <div class="mock-subtitle">오늘도 주님과<br>함께하는 시간</div>
-            <div class="mock-btn">기도 시작하기</div>
-          </div>
         </div>
       </div>
 
       <!-- 타이머 -->
       <div class="screen-card reveal">
-        <div class="screen-header">
+        <div class="phone-frame">
+          <img src="2_timer.png" alt="기도 타이머">
+        </div>
+        <div class="screen-label">
           <div class="screen-name">기도 타이머</div>
           <div class="screen-sub">집중 기도 모드</div>
-        </div>
-        <div class="screen-mockup">
-          <div class="mock-timer">
-            <div class="mock-timer-label">기도 중...</div>
-            <div class="mock-circle">
-              <div class="mock-circle-num">18:32</div>
-              <div class="mock-circle-sub">남은 시간</div>
-            </div>
-            <div class="mock-pause-btn">⏸ 잠시 멈춤</div>
-          </div>
         </div>
       </div>
 
       <!-- 달력 -->
       <div class="screen-card reveal">
-        <div class="screen-header">
+        <div class="phone-frame">
+          <img src="3_calendar.png" alt="기도 달력">
+        </div>
+        <div class="screen-label">
           <div class="screen-name">기도 달력</div>
           <div class="screen-sub">이번 달 기록</div>
-        </div>
-        <div class="screen-mockup">
-          <div class="mock-cal">
-            <div class="mock-cal-title">2026년 3월</div>
-            <div class="mock-cal-grid">
-              <div class="mock-dot empty"></div><div class="mock-dot empty"></div><div class="mock-dot empty"></div><div class="mock-dot empty"></div><div class="mock-dot empty"></div><div class="mock-dot g1">1</div><div class="mock-dot g2">2</div>
-              <div class="mock-dot g3">3</div><div class="mock-dot g4">4</div><div class="mock-dot g4">5</div><div class="mock-dot g3">6</div><div class="mock-dot g2">7</div><div class="mock-dot g4">8</div><div class="mock-dot g4">9</div>
-              <div class="mock-dot g4">10</div><div class="mock-dot g3">11</div><div class="mock-dot g4">12</div><div class="mock-dot g4">13</div><div class="mock-dot g4 today">14</div><div class="mock-dot">15</div><div class="mock-dot">16</div>
-            </div>
-            <div class="mock-stats">
-              <div class="mock-stat"><div class="mock-stat-num">14</div><div class="mock-stat-label">연속일</div></div>
-              <div class="mock-stat"><div class="mock-stat-num">4.2h</div><div class="mock-stat-label">이번달</div></div>
-              <div class="mock-stat"><div class="mock-stat-num">87%</div><div class="mock-stat-label">달성률</div></div>
-            </div>
-          </div>
         </div>
       </div>
 
       <!-- 기도 일지 -->
       <div class="screen-card reveal">
-        <div class="screen-header">
+        <div class="phone-frame">
+          <img src="4_diary.png" alt="기도 일지">
+        </div>
+        <div class="screen-label">
           <div class="screen-name">기도 일지</div>
           <div class="screen-sub">오늘의 기록</div>
-        </div>
-        <div class="screen-mockup">
-          <div class="mock-record">
-            <div class="mock-record-title">오늘의 기도 일지</div>
-            <div class="mock-field">
-              <div class="mock-field-label">기도 제목</div>
-              <div class="mock-field-content">가족의 건강과 평안을 위해...</div>
-            </div>
-            <div class="mock-field">
-              <div class="mock-field-label">오늘의 말씀</div>
-              <div class="mock-field-content">요 14:16 — 영원토록 너희와 함께 있게 하리니</div>
-            </div>
-            <div class="mock-save-btn">저장하기</div>
-          </div>
         </div>
       </div>
 
       <!-- 주간 리포트 -->
       <div class="screen-card reveal">
-        <div class="screen-header">
+        <div class="phone-frame">
+          <img src="5_weekly_report.png" alt="주간 리포트">
+        </div>
+        <div class="screen-label">
           <div class="screen-name">주간 리포트</div>
           <div class="screen-sub">이번 주 요약</div>
         </div>
-        <div class="screen-mockup">
-          <div class="mock-report">
-            <div class="mock-report-title">이번 주 기도 요약</div>
-            <div class="mock-intimacy">
-              <div class="mock-intimacy-circle">83%</div>
-            </div>
-            <div class="mock-quote">
-              "영원토록 너희와 함께 있게 하리니" — 요 14:16
-            </div>
-          </div>
-        </div>
       </div>
+
     </div>
   </div>
 </section>
