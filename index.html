@@ -3,7 +3,6 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link rel="icon" href="favicon.png" type="image/png">
 <title>WITH – 영적 페이스메이커</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR:wght@300;400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Noto+Sans+KR:wght@300;400;500&display=swap" rel="stylesheet">
@@ -961,6 +960,87 @@
 
   .phase2-desc { font-size: 12px; color: var(--gray-light); font-weight: 300; line-height: 1.7; }
 
+  /* ── WITH의 소망 ── */
+  .our-hope {
+    background: linear-gradient(135deg, #2E2820 0%, #3D3228 50%, #2E2820 100%);
+    padding: 120px 40px;
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .our-hope::before {
+    content: '';
+    position: absolute; inset: 0;
+    background: radial-gradient(ellipse 70% 80% at 50% 50%, rgba(212,160,23,0.1) 0%, transparent 70%);
+  }
+
+  .our-hope::after {
+    content: '';
+    position: absolute;
+    width: 600px; height: 600px;
+    border-radius: 50%;
+    border: 1px solid rgba(212,160,23,0.08);
+    top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  .our-hope-inner {
+    position: relative; z-index: 1;
+    max-width: 680px;
+    margin: 0 auto;
+  }
+
+  .our-hope-label {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--gold);
+    text-transform: uppercase;
+    margin-bottom: 20px;
+  }
+
+  .our-hope-title {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(24px, 4vw, 36px);
+    font-weight: 400;
+    color: rgba(245,240,232,0.9);
+    margin-bottom: 60px;
+    letter-spacing: 0.05em;
+  }
+
+  .our-hope-verse {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .our-hope-verse p {
+    font-family: 'Noto Serif KR', serif;
+    font-size: clamp(16px, 2.5vw, 22px);
+    font-weight: 300;
+    color: rgba(245,240,232,0.75);
+    line-height: 2;
+    letter-spacing: 0.02em;
+  }
+
+  .our-hope-closing {
+    margin-top: 20px !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-style: italic;
+    font-size: clamp(18px, 2.8vw, 26px) !important;
+    color: rgba(245,240,232,0.9) !important;
+  }
+
+  .our-hope-ref {
+    margin-top: 28px !important;
+    font-family: 'Cormorant Garamond', serif !important;
+    font-size: 15px !important;
+    color: var(--gold) !important;
+    letter-spacing: 0.15em;
+  }
+
   /* ── FOOTER CTA ── */
   .footer-cta {
     background: var(--white);
@@ -1076,7 +1156,7 @@
     <h1 class="hero-title">W<span>I</span>TH</h1>
 
     <p class="hero-subtitle">
-      주님이 나와 함께, 나도 주님과 함께.<br>
+      주님이 나와 함께, 나도 주님과 함께<br>
       매일의 기도를 기록하고 주님과의 친밀함을 시각화하는<br>
       <strong style="font-weight:500;color:var(--gray);">영적 페이스메이커</strong>
     </p>
@@ -1553,6 +1633,21 @@
           <div class="phase2-desc">iOS 안정화 이후 Android 플랫폼으로 확장하여 더 많은 크리스천이 함께할 수 있도록</div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<!-- ── WITH의 소망 ── -->
+<section class="our-hope">
+  <div class="our-hope-inner reveal">
+    <p class="our-hope-label">Our Hope</p>
+    <h2 class="our-hope-title">WITH의 소망</h2>
+    <div class="our-hope-verse">
+      <p>예수 그리스도의 은혜로 기도하고</p>
+      <p>하나님의 사랑 안에 머물며</p>
+      <p>성령의 교통하심으로 깊어지는 동행</p>
+      <p class="our-hope-closing">— 그것이 WITH의 소망입니다.</p>
+      <p class="our-hope-ref">고린도후서 13:13</p>
     </div>
   </div>
 </section>
