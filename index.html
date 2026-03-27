@@ -1128,16 +1128,35 @@
 
   /* ── RESPONSIVE ── */
   @media (max-width: 768px) {
-    .mission-grid, .theme-grid { grid-template-columns: 1fr; gap: 40px; }
+    .mission-grid { grid-template-columns: 1fr; gap: 40px; }
     .features-grid, .tech-grid, .phase2-grid, .advantages-grid { grid-template-columns: 1fr 1fr; }
     .flow-steps { gap: 0; }
     section { padding: 60px 24px; }
-    .theme-card { padding: 36px 28px; }
+
+    /* 테마 가로 스크롤 */
+    .theme-grid {
+      display: flex;
+      flex-direction: row;
+      overflow-x: auto;
+      gap: 20px;
+      padding-bottom: 20px;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      margin: 0 -24px;
+      padding-left: 24px;
+      padding-right: 24px;
+    }
+    .theme-grid::-webkit-scrollbar { display: none; }
+    .theme-card {
+      flex-shrink: 0;
+      width: 80vw;
+      max-width: 340px;
+      padding: 36px 28px;
+    }
   }
 
   @media (max-width: 520px) {
     .features-grid, .phase2-grid, .advantages-grid { grid-template-columns: 1fr; }
-    .theme-grid { grid-template-columns: 1fr; }
   }
 </style>
 </head>
