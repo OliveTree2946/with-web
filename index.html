@@ -165,7 +165,26 @@
   }
   .btn-outline:hover { background: rgba(74,64,53,0.05); border-color: rgba(74,64,53,0.4); }
 
-  /* ── TAGS ── */
+  .hero-hands-img {
+    position: absolute;
+    top: -40px;
+    right: -60px;
+    width: 520px;
+    opacity: 0.18;
+    pointer-events: none;
+    animation: breathe 7s ease-in-out infinite;
+    z-index: 0;
+    transform: rotate(15deg);
+  }
+
+  @media (max-width: 768px) {
+    .hero-hands-img {
+      width: 320px;
+      right: -40px;
+      top: -20px;
+      opacity: 0.12;
+    }
+  }
   .hero-tags {
     display: flex; flex-wrap: wrap; gap: 10px;
     justify-content: center;
@@ -737,15 +756,15 @@
   .theme-card:hover { transform: translateY(-6px); }
 
   .theme-card.gold-theme {
-    background: linear-gradient(145deg, #F9F0DC 0%, #F5E8C7 40%, #EDD68A 100%);
-    border: 1px solid rgba(212,160,23,0.3);
-    box-shadow: 0 12px 60px rgba(212,160,23,0.15);
+    background: linear-gradient(145deg, #F5F1E8 0%, #F0EAD8 60%, #EDE3C8 100%);
+    border: 1px solid rgba(212,160,23,0.25);
+    box-shadow: 0 12px 60px rgba(212,160,23,0.12);
   }
 
   .theme-card.sage-theme {
-    background: linear-gradient(145deg, #EEF2EB 0%, #E0EAD9 40%, #C8D9C0 100%);
-    border: 1px solid rgba(200,213,194,0.5);
-    box-shadow: 0 12px 60px rgba(168,196,160,0.2);
+    background: linear-gradient(145deg, #2D4A2C 0%, #2A4528 60%, #243D23 100%);
+    border: 1px solid rgba(212,160,23,0.2);
+    box-shadow: 0 12px 60px rgba(0,0,0,0.25);
   }
 
   .theme-card::before {
@@ -754,11 +773,11 @@
     top: -60px; right: -60px;
     width: 200px; height: 200px;
     border-radius: 50%;
-    opacity: 0.2;
+    opacity: 0.15;
   }
 
   .theme-card.gold-theme::before { background: radial-gradient(circle, #D4A017, transparent); }
-  .theme-card.sage-theme::before { background: radial-gradient(circle, #7FA882, transparent); }
+  .theme-card.sage-theme::before { background: radial-gradient(circle, #D4A017, transparent); }
 
   .theme-badge {
     display: inline-flex;
@@ -776,14 +795,14 @@
 
   .theme-card.gold-theme .theme-badge {
     background: rgba(212,160,23,0.15);
-    color: #8B6200;
+    color: #7A5500;
     border: 1px solid rgba(212,160,23,0.3);
   }
 
   .theme-card.sage-theme .theme-badge {
-    background: rgba(168,196,160,0.2);
-    color: #3D6641;
-    border: 1px solid rgba(168,196,160,0.4);
+    background: rgba(212,160,23,0.15);
+    color: #D4A017;
+    border: 1px solid rgba(212,160,23,0.3);
   }
 
   .theme-name {
@@ -794,8 +813,8 @@
     line-height: 1.1;
   }
 
-  .theme-card.gold-theme .theme-name { color: #6B4E00; }
-  .theme-card.sage-theme .theme-name { color: #2A4D2E; }
+  .theme-card.gold-theme .theme-name { color: #5C4000; }
+  .theme-card.sage-theme .theme-name { color: #E8C55A; }
 
   .theme-tagline {
     font-family: 'Noto Serif KR', serif;
@@ -805,8 +824,8 @@
     margin-bottom: 32px;
   }
 
-  .theme-card.gold-theme .theme-tagline { color: #8B6200; }
-  .theme-card.sage-theme .theme-tagline { color: #3D6641; }
+  .theme-card.gold-theme .theme-tagline { color: #7A5500; }
+  .theme-card.sage-theme .theme-tagline { color: rgba(245,240,232,0.7); }
 
   .theme-swatches {
     display: flex;
@@ -817,8 +836,8 @@
   .swatch {
     width: 36px; height: 36px;
     border-radius: 50%;
-    border: 2px solid rgba(255,255,255,0.6);
-    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    border: 2px solid rgba(255,255,255,0.4);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.15);
     position: relative;
     cursor: pointer;
     transition: transform 0.2s;
@@ -832,8 +851,8 @@
     line-height: 1.9;
   }
 
-  .theme-card.gold-theme .theme-desc { color: rgba(107,78,0,0.75); }
-  .theme-card.sage-theme .theme-desc { color: rgba(61,102,65,0.75); }
+  .theme-card.gold-theme .theme-desc { color: rgba(92,64,0,0.7); }
+  .theme-card.sage-theme .theme-desc { color: rgba(245,240,232,0.6); }
 
   .theme-preview {
     margin-top: 28px;
@@ -845,13 +864,13 @@
   }
 
   .theme-card.gold-theme .theme-preview {
-    background: rgba(255,255,255,0.4);
+    background: rgba(255,255,255,0.35);
     border: 1px solid rgba(212,160,23,0.2);
   }
 
   .theme-card.sage-theme .theme-preview {
-    background: rgba(255,255,255,0.35);
-    border: 1px solid rgba(168,196,160,0.3);
+    background: rgba(0,0,0,0.15);
+    border: 1px solid rgba(212,160,23,0.2);
   }
 
   .preview-bar {
@@ -859,8 +878,8 @@
     border-radius: 4px;
   }
 
-  .theme-card.gold-theme .preview-bar { background: linear-gradient(90deg, var(--gold), var(--gold-mid), #F5E8C7); }
-  .theme-card.sage-theme .preview-bar { background: linear-gradient(90deg, #7FA882, #A8C4A0, #D4E8D0); }
+  .theme-card.gold-theme .preview-bar { background: linear-gradient(90deg, #D4A017, #E8C55A, #F5E8C7); }
+  .theme-card.sage-theme .preview-bar { background: linear-gradient(90deg, #D4A017, #E8C55A, rgba(232,197,90,0.4)); }
 
   .preview-dots {
     display: flex;
@@ -1168,6 +1187,7 @@
   <div class="hero-arc hero-arc-1"></div>
   <div class="hero-arc hero-arc-2"></div>
   <div class="hero-arc hero-arc-3"></div>
+  <img src="hands.png" alt="" class="hero-hands-img">
 
   <div class="hero-content">
     <div class="hero-badge">서비스 소개 · 2026</div>
@@ -1175,7 +1195,7 @@
     <h1 class="hero-title">W<span>I</span>TH</h1>
 
     <p class="hero-subtitle">
-      주님이 나와 함께, 나도 주님과 함께<br>
+      주님이 나와 함께, 나도 주님과 함께.<br>
       매일의 기도를 기록하고 주님과의 친밀함을 시각화하는<br>
       <strong style="font-weight:500;color:var(--gray);">영적 페이스메이커</strong>
     </p>
@@ -1259,51 +1279,83 @@
   </div>
 </section>
 
-<!-- ── WITH만의 장점 ── -->
-<section class="compare" id="compare">
-  <div class="container">
+<!-- ── SCREENS SHOWCASE ── -->
+<section class="screens" id="screens">
+  <div class="screens-container">
     <div class="reveal">
-      <p class="section-label">Why WITH</p>
-      <h2 class="section-title">WITH 만의 장점</h2>
-      <p class="section-desc">WITH는 단순한 기도 앱이 아닙니다. 주님과의 친밀한 교제를 일상 속에서 자연스럽게 이어가도록 돕는 영적 동반자입니다.</p>
+      <p class="section-label">App Screens</p>
+      <h2 class="section-title">화면 미리보기</h2>
+      <p class="section-desc">WITH의 주요 화면을 미리 만나보세요.</p>
     </div>
 
-    <div class="advantages-grid">
-      <div class="advantage-card reveal">
-        <span class="advantage-icon">🙏</span>
-        <div class="advantage-title">따뜻한 영적 동반자</div>
-        <div class="advantage-desc">어떤 상황에서도 함께하시는 주님을 인식하도록 돕습니다. 자연스럽게 주님께 나아가도록 곁에서 함께합니다.</div>
+    <div class="screens-scroll">
+
+      <!-- 홈 -->
+      <div class="screen-card reveal">
+        <div class="phone-frame">
+          <img src="1_home.png" alt="홈 화면">
+        </div>
+        <div class="screen-label">
+          <div class="screen-name">홈</div>
+          <div class="screen-sub">오늘의 기도 시작</div>
+        </div>
       </div>
 
-      <div class="advantage-card reveal">
-        <span class="advantage-icon">💛</span>
-        <div class="advantage-title">기도 습관을 위한 따뜻한 격려</div>
-        <div class="advantage-desc">매일이 아니어도 괜찮습니다. 다시 시작하는 그 기도가 가장 아름다운 기도입니다.</div>
+      <!-- 타이머 -->
+      <div class="screen-card reveal">
+        <div class="phone-frame">
+          <img src="2_timer.png" alt="기도 타이머">
+        </div>
+        <div class="screen-label">
+          <div class="screen-name">기도 타이머</div>
+          <div class="screen-sub">집중 기도 모드</div>
+        </div>
       </div>
 
-      <div class="advantage-card reveal">
-        <span class="advantage-icon">✨</span>
-        <div class="advantage-title">친밀도 시각화</div>
-        <div class="advantage-desc">기도가 쌓일수록 기도손이 따뜻한 금빛으로 물들어 갑니다. 눈에 보이는 변화로 주님과의 교제가 깊어지는 기쁨을 직접 느껴보세요.</div>
+      <!-- 달력 -->
+      <div class="screen-card reveal">
+        <div class="phone-frame">
+          <img src="3_calendar.png" alt="기도 달력">
+        </div>
+        <div class="screen-label">
+          <div class="screen-name">기도 달력</div>
+          <div class="screen-sub">이번 달 기록</div>
+        </div>
       </div>
 
-      <div class="advantage-card reveal">
-        <span class="advantage-icon">🎨</span>
-        <div class="advantage-title">나만의 공간, 두 가지 테마</div>
-        <div class="advantage-desc">골드는 따뜻한 임재를, 세이지는 고요한 평안을. 테마를 고르는 작은 설렘도 WITH의 일부입니다.</div>
+      <!-- 기도 일지 -->
+      <div class="screen-card reveal">
+        <div class="phone-frame">
+          <img src="4_diary.png" alt="기도 일지">
+        </div>
+        <div class="screen-label">
+          <div class="screen-name">기도 일지</div>
+          <div class="screen-sub">오늘의 기록</div>
+        </div>
       </div>
 
-      <div class="advantage-card reveal">
-        <span class="advantage-icon">🔒</span>
-        <div class="advantage-title">완전한 프라이버시</div>
-        <div class="advantage-desc">기도 기록은 내 기기 안에만 저장됩니다. 외부 서버로 전송되지 않으며, 오직 나와 하나님만 아는 기도의 공간을 지켜드립니다.</div>
+      <!-- 주간 리포트 -->
+      <div class="screen-card reveal">
+        <div class="phone-frame">
+          <img src="5_weekly_report.png" alt="주간 리포트">
+        </div>
+        <div class="screen-label">
+          <div class="screen-name">주간 리포트</div>
+          <div class="screen-sub">이번 주 요약</div>
+        </div>
       </div>
 
-      <div class="advantage-card reveal">
-        <span class="advantage-icon">🎁</span>
-        <div class="advantage-title">완전 무료 · 광고 없음</div>
-        <div class="advantage-desc">기도하는 중에 광고가 끼어들지 않습니다. 유료 구독도 없습니다. WITH의 모든 기능을 아무 조건 없이 완전히 무료로 사용하세요.</div>
+      <!-- 위젯 -->
+      <div class="screen-card reveal">
+        <div class="phone-frame">
+          <img src="6_widget.png" alt="홈 화면 위젯">
+        </div>
+        <div class="screen-label">
+          <div class="screen-name">홈 화면 위젯</div>
+          <div class="screen-sub">한눈에 보는 기도 현황</div>
+        </div>
       </div>
+
     </div>
   </div>
 </section>
@@ -1388,83 +1440,51 @@
   </div>
 </section>
 
-<!-- ── SCREENS SHOWCASE ── -->
-<section class="screens" id="screens">
-  <div class="screens-container">
+<!-- ── WITH만의 장점 ── -->
+<section class="compare" id="compare">
+  <div class="container">
     <div class="reveal">
-      <p class="section-label">App Screens</p>
-      <h2 class="section-title">화면 미리보기</h2>
-      <p class="section-desc">WITH의 주요 화면을 미리 만나보세요.</p>
+      <p class="section-label">Why WITH</p>
+      <h2 class="section-title">WITH 만의 장점</h2>
+      <p class="section-desc">WITH는 단순한 기도 앱이 아닙니다. 주님과의 친밀한 교제를 일상 속에서 자연스럽게 이어가도록 돕는 영적 동반자입니다.</p>
     </div>
 
-    <div class="screens-scroll">
-
-      <!-- 홈 -->
-      <div class="screen-card reveal">
-        <div class="phone-frame">
-          <img src="1_home.png" alt="홈 화면">
-        </div>
-        <div class="screen-label">
-          <div class="screen-name">홈</div>
-          <div class="screen-sub">오늘의 기도 시작</div>
-        </div>
+    <div class="advantages-grid">
+      <div class="advantage-card reveal">
+        <span class="advantage-icon">🙏</span>
+        <div class="advantage-title">영적 페이스메이커</div>
+        <div class="advantage-desc">어떤 상황에서도 함께하시는 주님을 인식하도록 돕습니다. 자연스럽게 주님께 나아가도록 곁에서 함께합니다.</div>
       </div>
 
-      <!-- 타이머 -->
-      <div class="screen-card reveal">
-        <div class="phone-frame">
-          <img src="2_timer.png" alt="기도 타이머">
-        </div>
-        <div class="screen-label">
-          <div class="screen-name">기도 타이머</div>
-          <div class="screen-sub">집중 기도 모드</div>
-        </div>
+      <div class="advantage-card reveal">
+        <span class="advantage-icon">💛</span>
+        <div class="advantage-title">기도 습관을 위한 따뜻한 격려</div>
+        <div class="advantage-desc">매일이 아니어도 괜찮습니다. 다시 시작하는 그 기도가 가장 아름다운 기도입니다.</div>
       </div>
 
-      <!-- 달력 -->
-      <div class="screen-card reveal">
-        <div class="phone-frame">
-          <img src="3_calendar.png" alt="기도 달력">
-        </div>
-        <div class="screen-label">
-          <div class="screen-name">기도 달력</div>
-          <div class="screen-sub">이번 달 기록</div>
-        </div>
+      <div class="advantage-card reveal">
+        <span class="advantage-icon">✨</span>
+        <div class="advantage-title">친밀도 시각화</div>
+        <div class="advantage-desc">기도가 쌓일수록 기도손이 따뜻한 금빛으로 물들어 갑니다. 눈에 보이는 변화로 주님과의 교제가 깊어지는 기쁨을 직접 느껴보세요.</div>
       </div>
 
-      <!-- 기도 일지 -->
-      <div class="screen-card reveal">
-        <div class="phone-frame">
-          <img src="4_diary.png" alt="기도 일지">
-        </div>
-        <div class="screen-label">
-          <div class="screen-name">기도 일지</div>
-          <div class="screen-sub">오늘의 기록</div>
-        </div>
+      <div class="advantage-card reveal">
+        <span class="advantage-icon">🎨</span>
+        <div class="advantage-title">나만의 공간, 두 가지 테마</div>
+        <div class="advantage-desc">골드는 따뜻한 임재를, 세이지는 고요한 평안을. 테마를 고르는 작은 설렘도 WITH의 일부입니다.</div>
       </div>
 
-      <!-- 주간 리포트 -->
-      <div class="screen-card reveal">
-        <div class="phone-frame">
-          <img src="5_weekly_report.png" alt="주간 리포트">
-        </div>
-        <div class="screen-label">
-          <div class="screen-name">주간 리포트</div>
-          <div class="screen-sub">이번 주 요약</div>
-        </div>
+      <div class="advantage-card reveal">
+        <span class="advantage-icon">🔒</span>
+        <div class="advantage-title">완전한 프라이버시</div>
+        <div class="advantage-desc">기도 기록은 내 기기 안에만 저장됩니다. 외부 서버로 전송되지 않으며, 오직 나와 하나님만 아는 기도의 공간을 지켜드립니다.</div>
       </div>
 
-      <!-- 위젯 -->
-      <div class="screen-card reveal">
-        <div class="phone-frame">
-          <img src="6_widget.png" alt="홈 화면 위젯">
-        </div>
-        <div class="screen-label">
-          <div class="screen-name">홈 화면 위젯</div>
-          <div class="screen-sub">한눈에 보는 기도 현황</div>
-        </div>
+      <div class="advantage-card reveal">
+        <span class="advantage-icon">🎁</span>
+        <div class="advantage-title">완전 무료 · 광고 없음</div>
+        <div class="advantage-desc">기도하는 중에 광고가 끼어들지 않습니다. 유료 구독도 없습니다. WITH의 모든 기능을 아무 조건 없이 완전히 무료로 사용하세요.</div>
       </div>
-
     </div>
   </div>
 </section>
@@ -1552,20 +1572,20 @@
         <div class="theme-name">세이지</div>
         <div class="theme-tagline">청록빛 자연 속에서<br>고요히 주님과 교제하는 시간</div>
         <div class="theme-swatches">
-          <div class="swatch" style="background:#7FA882;" title="Sage Dark"></div>
-          <div class="swatch" style="background:#A8C4A0;" title="Sage Mid"></div>
-          <div class="swatch" style="background:#C8D5C2;" title="Sage Light"></div>
-          <div class="swatch" style="background:#E8EDE5;" title="Sage Pale"></div>
-          <div class="swatch" style="background:#2A4D2E;" title="Deep Green"></div>
+          <div class="swatch" style="background:#243D23;" title="Deep Forest"></div>
+          <div class="swatch" style="background:#2D4A2C;" title="Forest"></div>
+          <div class="swatch" style="background:#3A5E38;" title="Mid Green"></div>
+          <div class="swatch" style="background:#D4A017;" title="Gold"></div>
+          <div class="swatch" style="background:#F5F1E8;" title="Cream"></div>
         </div>
         <div class="theme-desc">고요한 숲속에서 기도하는 듯한 편안함. 차분하고 깊은 영적 교제의 시간을 원할 때, 세이지 테마가 함께합니다.</div>
         <div class="theme-preview">
           <div class="preview-bar"></div>
           <div class="preview-dots">
-            <div class="preview-dot" style="background:#7FA882;"></div>
-            <div class="preview-dot" style="background:#A8C4A0;"></div>
-            <div class="preview-dot" style="background:#C8D5C2;"></div>
-            <div class="preview-dot" style="background:rgba(168,196,160,0.2);width:60px;border-radius:6px;"></div>
+            <div class="preview-dot" style="background:#2D4A2C;"></div>
+            <div class="preview-dot" style="background:#D4A017;"></div>
+            <div class="preview-dot" style="background:#F5F1E8;"></div>
+            <div class="preview-dot" style="background:rgba(212,160,23,0.2);width:60px;border-radius:6px;"></div>
           </div>
         </div>
       </div>
